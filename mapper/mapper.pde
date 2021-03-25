@@ -6,7 +6,7 @@ float dx, dy, dz, dt;
 float a, b, c;
 int hPos, wPos, numIt;
 int cci;// current count of iteration
-int ipp= 20;//iterations per position
+int ipp= 1;//iterations per position
 int iterationSum;
 
 void setup()
@@ -30,13 +30,13 @@ void setup()
 void draw()
 {
   while (hPos < height)
-  {  
+  {
+    if(hPos%(height/10)==0 && hPos > 0) print("#");
     wPos =0;
     while (wPos<width)
     {
       while (cci < ipp)
       {
-        println("wPos: "+wPos+" hPos: "+hPos);
         while (numIt < 10000)
         {
           dx = a*(y-x)*dt;
