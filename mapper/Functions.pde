@@ -3,7 +3,7 @@ boolean checkOutOfBounds() { //<>//
 }
 void newPos()
 {
-  set(wPos, hPos, color(map(iterationSum/ipp, 0, 10000, 0, 255), 0, 0));
+  set(wPos, hPos, color(map(iterationSum/ipp, 0, 10000, 255, 0), 0, 0));
   a = map(wPos, 0, width, -1, 1);
   b = map(hPos, 0, height, -1, 1);
   x = 5+cci;
@@ -16,7 +16,7 @@ void newPos()
 }
 
 boolean situationIsBad() {
-  return keyPressed|| numIt == 10000;
+  return numIt == 10000;
 }
 
 boolean areTheNumbersBad() {
