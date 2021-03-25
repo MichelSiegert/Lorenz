@@ -17,18 +17,18 @@ void setup()
   z = 0.5;
   a = 11/2;
   b = 35;
-  c = random(0.5);
+  c = -1;
   background(0x00);
   stroke(0xff);
   size(800, 800, P3D);
   strokeWeight(0.9);
-  noFill();
   dt = 0.005;
-  noLoop();
 }
 
 void draw()
 {
+  background(0x00);
+  hPos=0;
   while (hPos < height)
   {
     if (hPos%(height/10)==0 && hPos > 0) print("#");
@@ -59,4 +59,6 @@ void draw()
     wPos =0;
     hPos++;
   }
+  c= random(-1,1);
+  println("done");
 }
