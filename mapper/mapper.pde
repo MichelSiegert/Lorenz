@@ -17,7 +17,7 @@ void setup()
   z = 0.5;
   a = 11/2;
   b = 35;
-  c = random(0.01);
+  c = random(0.5);
   background(0x00);
   stroke(0xff);
   size(800, 800, P3D);
