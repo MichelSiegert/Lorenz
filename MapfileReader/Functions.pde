@@ -25,6 +25,7 @@ void drawBody()
   {
     for (int j=0; j <newLines[i].length-3; j+= 3)
     {
+      if (newLines[i][j] == 0) break;
       stroke(newLines[i][j+2],newLines[i][j+2]);
       point(newLines[i][j],newLines[i][j+1], newLines[i][j+2]);
     }

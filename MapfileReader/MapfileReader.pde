@@ -4,14 +4,14 @@ import java.io.*;
 
 BufferedReader reader;
 String text;
-int  [][]newLines = new int[401][16000];
+int  [][]newLines = new int[401][166912];
 int i=0;
 
 
 void setup()
 {
   noFill();
-  reader = createReader("/../mapValues.txt");
+  reader = createReader("../mapValues.txt");
   readFile();
   background(0x00);
   stroke(0xff);
@@ -21,9 +21,10 @@ void setup()
 
 void draw()
 { 
-  camera(2*width*cos(PI/2), 
-    2*height*sin(PI/2), 
-    2*height/ tan(PI/6)*cos(PI/2), 
+  background(0x00);
+  camera(width*cos(map(frameCount%10,0,10,0,TWO_PI)), 
+    height*sin(PI/2), 
+    height*sin(map(frameCount%10,0,10,0,TWO_PI)), 
 
     width/2, 
     height/2, 
