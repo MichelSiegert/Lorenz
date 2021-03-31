@@ -1,4 +1,4 @@
-boolean checkOutOfBounds() { //<>// //<>// //<>//
+boolean checkOutOfBounds() { //<>// //<>// //<>// //<>//
   return (areTheNumbersBad() || situationIsBad());
 }
 void newPos()
@@ -20,7 +20,7 @@ void newPos()
 void appendFile()
 {
   try {
-    File file =new File("/Users/Michel/Desktop/Processing21_22/Lorenz/mapValues1000.txt");
+    File file =new File("/Users/Michel/Desktop/Processing21_22/Lorenz/mapValues.txt");
 
     if (!file.exists()) {
       file.createNewFile();
@@ -32,12 +32,18 @@ void appendFile()
     {
       for (int j=0; j< height; j++)
       {
-        pw.write(values[i][j]);
+        if (values[i][j] > map(iterationSum/ipp*acceptableFactor, 0, maxNumIt, 0, 255))
+        {
+          pw.write(i+";");
+          pw.write(j+";");
+          pw.write(values[i][j]+";");
+        }
       }
     }
-    pw.write("!");
+
+    pw.write("\n");
     pw.close();
-    println("done!"+c); //<>//
+    println("done!"+c);
   }
   catch (Exception e) {
     println(e);

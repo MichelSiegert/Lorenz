@@ -11,24 +11,24 @@ float step;
 
 //play around vars
 int maxNumIt = 1000;
-float acceptableFactor = 0.00;
-String[][] values;
+float acceptableFactor = 0.9;
+int [][] values;
 
 float lowerEnd = -1,
-upperEnd = 99;
+upperEnd = 39;
 //optional? keep them to the normal boundaries
-float lowerA = -10,
-upperA = 500-lowerA;
+float lowerA = -500,
+upperA = 0-lowerA;
 
-float lowerB = -50,
-upperB = 70;
-int ipp= 5;//iterations per position
+float lowerB = -500,
+upperB = 500-lowerB;
+int ipp= 5;//iterations per pixel
 
 
 
 void setup()
 {
-  values = new String[1000][1000];
+  values = new int[400][400];
   newPos();
   x = 0.01;
   y = 0.1;
@@ -38,13 +38,13 @@ void setup()
   c = lowerEnd;
   background(0x00);
   stroke(0xff);
-  size(1000, 1000);
+  size(400, 400);
   strokeWeight(0.9);
   dt = 0.005;
   step = (upperEnd-lowerEnd)/width;
 }
 
-void draw()
+void draw()  
 {
 
   background(0x00);
@@ -72,8 +72,8 @@ void draw()
         iterationSum += numIt;
         numIt=0;
       }
-      if (iterationSum/ipp > maxNumIt * acceptableFactor) values[wPos][hPos] = Float.toString((float)Math.round(map(((float)iterationSum/ipp), 0, maxNumIt, 0, 255)*100)/100)+";";
-      else values [wPos][hPos] = "0;";
+      if (iterationSum/ipp > maxNumIt * acceptableFactor) values[wPos][hPos] = (int)map(((float)iterationSum/ipp), 0, maxNumIt, 0, 255);
+      else values [wPos][hPos] = 0;
       cci = 0;
       wPos++;
       newPos();
