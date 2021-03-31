@@ -4,18 +4,18 @@ import java.io.*;
 
 BufferedReader reader;
 String text;
-String  [][]newLines;
+int  [][]newLines = new int[401][16000];
 int i=0;
 
 
 void setup()
 {
   noFill();
-  reader = createReader("C:/Users/Michel/Desktop/Processing21_22/Lorenz/mapValues.txt");
+  reader = createReader("/../mapValues.txt");
   readFile();
   background(0x00);
   stroke(0xff);
-  size(1000, 1000);
+  size(1000, 1000, P3D);
   strokeWeight(1);
 }
 

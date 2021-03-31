@@ -1,33 +1,21 @@
 void readFile() //<>//
 {  
-  try {
-
-    text = reader.readLine();
-  }
-  catch (IOException e) {
-    e.printStackTrace();
-    text = null;
-    println("error?");
-  }
-
+  try {text = reader.readLine();}catch (IOException e) {} //<>//
   do
   {
-    newLines[i] = (split(text, ";"));
-    try {
-
-      text = reader.readLine();
+    String [] seperated = (split(text, ";"));
+    println(seperated.length);
+    for (int j=0; j<seperated.length-1; j++)
+    {
+      newLines[i][j] = Integer.parseInt(seperated[j]);
     }
-    catch (IOException e) {
-      e.printStackTrace();
-      text = null;
-      println("error?");
-    }
-    print("#");
+    try {text = reader.readLine();}catch (IOException e) {}
     i++;
   }
   while (text != null);
   println("done!");
 }
+
 
 void drawBody()
 {
@@ -35,12 +23,12 @@ void drawBody()
   translate(width/2-200, height/2-200);
   for (int i=0; i< newLines.length; i++)
   {
-    for (int j=0; j <newLines[i].length; j+= 3)
-
+    for (int j=0; j <newLines[i].length-3; j+= 3)
     {
-      stroke(newLines[i+2], (float)newLines[i+2]);
-      point(newLines[i], newLines[i+1], newLines[i+2]);
+      stroke(newLines[i][j+2],newLines[i][j+2]);
+      point(newLines[i][j],newLines[i][j+1], newLines[i][j+2]);
     }
+    if( i%(newLines.length/10)==0)print("#");
   }
 
   popMatrix();
