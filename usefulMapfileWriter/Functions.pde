@@ -20,7 +20,7 @@ void newPos()
 void appendFile()
 {
   try {
-    File file =new File("/Users/Michel/Desktop/Processing21_22/Lorenz/mapValues.txt");
+    File file =new File("../mapValues.txt");
 
     if (!file.exists()) {
       file.createNewFile();
